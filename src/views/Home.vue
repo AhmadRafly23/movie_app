@@ -37,7 +37,7 @@
           </p></router-link
         >
       </div>
-      <div v-if="isLoading" class="flex justify-center mt-6">
+      <div v-if="isLoading || loadImage" class="flex justify-center mt-6">
         <Loading />
       </div>
       <div
@@ -98,13 +98,13 @@ export default {
       return sortData.slice(0, 4);
     };
 
-    console.log(loadImage.value);
     return {
       modules: [Autoplay, Pagination],
       data,
       isLoading,
       sliceData,
       handleLoadImage,
+      loadImage,
     };
   },
 };

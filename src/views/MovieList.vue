@@ -18,7 +18,7 @@
         ></path>
       </svg>
     </div>
-    <div v-if="isLoading" class="mt-6 flex justify-center">
+    <div v-if="isLoading || loadImage" class="mt-6 flex justify-center">
       <Loading />
     </div>
     <div
@@ -33,7 +33,7 @@
         <router-link
           :to="{ name: 'MovieDetail', params: { id: item.show.id } }"
         >
-          <CardMovie :data="item"
+          <CardMovie :data="item" :handleLoadImage="handleLoadImage"
         /></router-link>
       </div>
     </div>
@@ -54,6 +54,11 @@ export default {
   },
   setup() {
     const searchQuery = ref("");
+    const loadImage = ref(false);
+
+    const handleLoadImage = () => {
+      loadImage.value = true;
+    };
 
     const { data, isLoading } = useFetch("/search/shows?q=girls");
 
@@ -72,6 +77,8 @@ export default {
       isLoading,
       searchQuery,
       searchMovies,
+      handleLoadImage,
+      loadImage,
     };
   },
 };
