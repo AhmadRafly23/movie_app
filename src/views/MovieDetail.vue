@@ -138,7 +138,12 @@
           </div>
           <div class="flex flex-col items-center text-center">
             <h2 class="text-xl font-semibold mb-1">Plot Summary</h2>
-            <p class="leading-6 text-sm">{{ data.show.summary }}</p>
+            <p class="leading-6 text-sm">
+              {{
+                parser.parseFromString(data.show.summary, "text/html")
+                  .documentElement.textContent
+              }}
+            </p>
           </div>
         </div>
       </div>
@@ -159,6 +164,8 @@ export default {
   setup() {
     const route = useRoute();
 
+    const parser = new DOMParser();
+
     const { data, isLoading } = useFetch("/search/shows?q=girls");
 
     const getDetailMovie = () => {
@@ -173,6 +180,7 @@ export default {
       data,
       isLoading,
       getDetailMovie,
+      parser,
     };
   },
 };

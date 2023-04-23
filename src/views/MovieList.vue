@@ -18,6 +18,13 @@
         ></path>
       </svg>
     </div>
+    <div
+      v-if="searchMovies.length === 0"
+      class="p-4 flex flex-col items-center"
+    >
+      <img src="@/assets/notfound_result.png" class="max-w-[600px] w-full" />
+      <p class="text-3xl font-semibold">Result Not Found</p>
+    </div>
     <div v-if="isLoading" class="mt-6 flex justify-center">
       <Loading />
     </div>

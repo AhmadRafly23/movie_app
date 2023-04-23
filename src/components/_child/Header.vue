@@ -3,7 +3,7 @@
     <div class="flex justify-between items-center py-6 px-5 2xl:px-0">
       <div>
         <router-link to="/">
-          <img src="../../assets/icon_movie.png" alt=""
+          <img src="@/assets/icon_movie.png" alt=""
         /></router-link>
       </div>
       <div v-if="width > 768" class="flex justify-center items-center">
