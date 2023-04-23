@@ -2,6 +2,7 @@
   <img
     class="h-[400px] w-full object-cover rounded-3xl hover:scale-105 hover:border-[4px] hover:border-blue-600 hover:duration-[0.3s] hover:ease-linear"
     v-bind:src="data.show.image.original"
+    @load="handleLoadImage"
     alt=""
   />
   <div class="flex justify-between mt-4">
@@ -39,6 +40,7 @@ export default {
   name: "CardMovie",
   props: {
     data: Object,
+    handleLoadImage: Function,
   },
 };
 </script>

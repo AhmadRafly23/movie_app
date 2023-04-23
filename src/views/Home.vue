@@ -52,7 +52,7 @@
           <router-link
             :to="{ name: 'MovieDetail', params: { id: item.show.id } }"
           >
-            <CardMovie :data="item"
+            <CardMovie :data="item" :handleLoadImage="handleLoadImage"
           /></router-link>
         </div>
       </div>
@@ -68,6 +68,7 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay, Pagination } from "swiper";
 import "swiper/css/pagination";
 import { useFetch } from "@/utils/useFetch";
+import { ref } from "vue";
 
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
@@ -82,6 +83,12 @@ export default {
   setup() {
     const { data, isLoading } = useFetch("/search/shows?q=girls");
 
+    const loadImage = ref(false);
+
+    const handleLoadImage = () => {
+      loadImage.value = true;
+    };
+
     const sliceData = (value) => {
       if (!value) return;
       const sortData = value.sort((a, b) => {
@@ -91,11 +98,13 @@ export default {
       return sortData.slice(0, 4);
     };
 
+    console.log(loadImage.value);
     return {
       modules: [Autoplay, Pagination],
       data,
       isLoading,
       sliceData,
+      handleLoadImage,
     };
   },
 };
