@@ -84,7 +84,7 @@
               </svg>
               <p
                 v-if="
-                  data.show.schedule.days[0].length === 0 ||
+                  data.show.schedule.days.length === 0 ||
                   data.show.schedule.time === ''
                 "
                 class="text-white"
