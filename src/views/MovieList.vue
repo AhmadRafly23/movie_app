@@ -1,7 +1,12 @@
 <template>
   <div class="flex flex-col items-center py-5">
     <div class="text-input flex items-center">
-      <input type="text" placeholder="Search" v-model="searchQuery" />
+      <input
+        type="text "
+        class="placeholder:text-gray-500 text-gray-700"
+        placeholder="Search"
+        v-model="searchQuery"
+      />
       <svg
         class="w-5 h-5"
         aria-hidden="true"

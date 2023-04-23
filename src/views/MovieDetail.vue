@@ -57,7 +57,10 @@
                   stroke-linejoin="round"
                 ></path>
               </svg>
-              <p class="text-white">
+              <p v-if="data.show.rating.average === null" class="text-white">
+                -
+              </p>
+              <p v-else class="text-white">
                 {{ data.show.rating.average }}
               </p>
             </div>
@@ -79,7 +82,16 @@
                   stroke-linejoin="round"
                 ></path>
               </svg>
-              <p class="text-white">
+              <p
+                v-if="
+                  data.show.schedule.days[0].length === 0 ||
+                  data.show.schedule.time === ''
+                "
+                class="text-white"
+              >
+                -
+              </p>
+              <p v-else class="text-white">
                 {{ data.show.schedule.days[0] }} at
                 {{ data.show.schedule.time }}
               </p>
@@ -138,7 +150,10 @@
           </div>
           <div class="flex flex-col items-center text-center">
             <h2 class="text-xl font-semibold mb-1">Plot Summary</h2>
-            <p class="leading-6 text-sm">
+            <p v-if="data.show.summary === null" class="leading-6 text-sm">
+              No summary
+            </p>
+            <p v-else class="leading-6 text-sm">
               {{
                 parser.parseFromString(data.show.summary, "text/html")
                   .documentElement.textContent
