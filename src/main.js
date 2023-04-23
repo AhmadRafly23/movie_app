@@ -1,4 +1,10 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import App from './App.vue';
+import router from './router';
+import './index.css';
+import 'swiper/css';
 
-createApp(App).mount('#app')
+const app = createApp(App);
+
+app.use(router);
+app.mount('#app');

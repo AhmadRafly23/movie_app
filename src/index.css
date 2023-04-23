@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box
+}
+
+body{
+    @apply bg-gray-50;
+}
+
+.content-swiper,.image-detail{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.text-input{
+    @apply bg-white w-fit pr-3 rounded-full
+}
+
+.text-input input{
+    @apply pl-4 pr-2 py-3 rounded-full text-sm focus:outline-none;
+}
+
+.image-detail a:hover .play{
+    stroke: #f5cf49
+}
+
+.dark{
+    @apply bg-gray-900 text-white
+}
