@@ -37,7 +37,7 @@
           </p></router-link
         >
       </div>
-      <div v-if="isLoading || loadImage" class="flex justify-center mt-6">
+      <div v-if="isLoading" class="flex justify-center mt-6">
         <Loading />
       </div>
       <div
@@ -52,7 +52,10 @@
           <router-link
             :to="{ name: 'MovieDetail', params: { id: item.show.id } }"
           >
-            <CardMovie :data="item" :handleLoadImage="handleLoadImage"
+            <CardMovie
+              :data="item"
+              :handleLoadImage="handleLoadImage"
+              :loadImage="loadImage"
           /></router-link>
         </div>
       </div>
